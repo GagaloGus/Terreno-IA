@@ -11,13 +11,9 @@ public class GuardState : State
 
     public override State Run(GameObject owner)
     {
-        owner.GetComponent<NavMeshAgent>().SetDestination(guardPoint);
+        navMeshAgent.SetDestination(guardPoint);
 
-        if(action.Check(owner) == actionValue)
-        {
-            return nextState;
-        }
-        return this;
+        return base.Run(owner);
 
     }
 }

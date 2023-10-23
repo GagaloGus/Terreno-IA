@@ -503,7 +503,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 4
+    m_MaxSpeed: 5
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: Mouse Y
@@ -527,7 +527,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 500
     m_AccelTime: 0
     m_DecelTime: 0
     m_InputAxisName: Mouse X
@@ -1047,8 +1047,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bdbad9838bb72848be9e25f661ab691, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 75.15
-  jumpForce: 4.19
+  moveSpeed: 5
+  jumpForce: 6
   isGrounded: 0
 --- !u!135 &1351862851
 SphereCollider:
@@ -1495,15 +1495,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1989949663331924078, guid: 6d82ee2b615228d40ace5a84c25c62d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 500.44
+      value: 119
       objectReference: {fileID: 0}
     - target: {fileID: 1989949663331924078, guid: 6d82ee2b615228d40ace5a84c25c62d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.41
+      value: 26.99
       objectReference: {fileID: 0}
     - target: {fileID: 1989949663331924078, guid: 6d82ee2b615228d40ace5a84c25c62d5, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 604.9
+      value: 712
       objectReference: {fileID: 0}
     - target: {fileID: 1989949663331924078, guid: 6d82ee2b615228d40ace5a84c25c62d5, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1533,10 +1533,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8169832177378578330, guid: 6d82ee2b615228d40ace5a84c25c62d5, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1351862848}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

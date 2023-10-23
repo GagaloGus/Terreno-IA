@@ -20,15 +20,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float IncMovespeed = moveSpeed * 20;
         moveInput = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
         moveInput.Normalize();
 
-        rb.AddForce((-Camera.main.transform.right * moveInput.x + -Camera.main.transform.forward * moveInput.y) * moveSpeed);
+        rb.AddForce((-Camera.main.transform.right * moveInput.x + -Camera.main.transform.forward * moveInput.y) * IncMovespeed);
 
         rb.velocity = new(
-            Mathf.Clamp(rb.velocity.x, -moveSpeed, moveSpeed),
-            Mathf.Clamp(rb.velocity.y, -30, 30),
-            Mathf.Clamp(rb.velocity.z, -moveSpeed, moveSpeed));
+            Mathf.Clamp(rb.velocity.x, -IncMovespeed, IncMovespeed),
+            Mathf.Clamp(rb.velocity.y, -50, 50),
+            Mathf.Clamp(rb.velocity.z, -IncMovespeed, IncMovespeed));
 
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, LayerMask.GetMask("Ground"));

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4611937983867336847}
   - component: {fileID: 287554070301509939}
   - component: {fileID: 136380633243228805}
-  - component: {fileID: 8169832177378578330}
+  - component: {fileID: 4910880174163742984}
   m_Layer: 0
   m_Name: bebo
   m_TagString: Untagged
@@ -117,8 +117,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.77
-  m_Speed: 200
-  m_Acceleration: 100
+  m_Speed: 11.35
+  m_Acceleration: 4
   avoidancePriority: 50
   m_AngularSpeed: 150
   m_StoppingDistance: 0
@@ -129,7 +129,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
---- !u!114 &8169832177378578330
+--- !u!114 &4910880174163742984
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 476426490170276238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f185d52516731f34cb88ebaecedf545f, type: 3}
+  m_Script: {fileID: 11500000, guid: 57a31ea9daa9b5740899cdfce5f5b4d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  initialState: {fileID: 11400000, guid: 09e2b59ce19a79942a5016facda54b53, type: 2}
