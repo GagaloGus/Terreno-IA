@@ -15,10 +15,14 @@ public class WatchAction : Action
         {
             if(ray.collider.GetComponent<PlayerMovement>())
             {
+                Debug.Log("te miro");
                 return true;
             }
         }
+        Debug.LogWarning("no te miro");
         return false;
 
     }
+
+
 }

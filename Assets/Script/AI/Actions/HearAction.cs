@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.UI.GridLayoutGroup;
 
 [CreateAssetMenu(fileName = "(A) Hear", menuName = "ScriptableObjects/Actions/HearAction")]
 public class HearAction : Action
@@ -19,5 +20,10 @@ public class HearAction : Action
 
         }
         return false;
+    }
+
+    public override void DrawGizmo(GameObject owner)
+    {
+        Gizmos.DrawWireSphere(owner.transform.position, hearRadius);
     }
 }

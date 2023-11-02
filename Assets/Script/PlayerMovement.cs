@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float IncMovespeed = moveSpeed * 20;
+        float IncMovespeed = moveSpeed * 5;
         moveInput = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
         moveInput.Normalize();
 

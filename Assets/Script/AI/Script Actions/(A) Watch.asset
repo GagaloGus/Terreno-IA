@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf45f015752ebb4a84c917eba9a1af1, type: 3}
   m_Name: (A) Watch
   m_EditorClassIdentifier: 
-  visionMaxDistance: 0
+  visionMaxDistance: 20

@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0901cff9284cf92489615bca21e88572, type: 3}
   m_Name: (S) Guard
   m_EditorClassIdentifier: 
-  action: {fileID: 11400000, guid: 0c71012a79db25840915911451a6cb33, type: 2}
-  actionValue: 1
-  nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
+  parameters:
+  - action: {fileID: 11400000, guid: 0c71012a79db25840915911451a6cb33, type: 2}
+    actionValue: 1
+    nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
+  - action: {fileID: 11400000, guid: dd8f77e0089879b49aee020d17ba6878, type: 2}
+    actionValue: 1
+    nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
   guardPoint: {x: 119, y: 26.99, z: 712}
