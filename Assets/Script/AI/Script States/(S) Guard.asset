@@ -19,4 +19,4 @@ MonoBehaviour:
   - action: {fileID: 11400000, guid: dd8f77e0089879b49aee020d17ba6878, type: 2}
     actionValue: 1
     nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
-  guardPoint: {x: 119, y: 26.99, z: 712}
+  guardPoint: {x: 121.7, y: 26.99, z: 712}
