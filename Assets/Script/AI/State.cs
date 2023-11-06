@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -6,11 +7,19 @@ using UnityEngine.AI;
 using static UnityEngine.UI.GridLayoutGroup;
 
 [System.Serializable]
-public struct StateParameters
+public struct ActionParameter
 {
     public Action action;
     public bool actionValue;
+}
+
+[System.Serializable]
+public struct StateParameters
+{
+    public ActionParameter[] actionParameters;
     public State nextState;
+    [Tooltip("True = Or (si se cumple una solo cambia a la siguiente, False = And")]
+    public bool or;
 }
 
 public abstract class State : ScriptableObject
@@ -21,10 +30,17 @@ public abstract class State : ScriptableObject
     {
         foreach (StateParameters par in parameters)
         {
-            if (par.action.Check(owner) == par.actionValue)
+            bool and = true;
+            for(int i = 0; i < par.actionParameters.Length; i++)
             {
-                return par.nextState;
+                bool currentAction = par.actionParameters[i].action.Check(owner) == par.actionParameters[i].actionValue;
+
+                and &= currentAction;
+                if(par.or && currentAction) { return par.nextState; }
             }
+
+            return and ? par.nextState : null;
+            
         }
 
         return null;
@@ -39,7 +55,10 @@ public abstract class State : ScriptableObject
     {
         foreach (StateParameters par in parameters)
         {
-            par.action.DrawGizmo(owner);
+            for (int i = 0; i < par.actionParameters.Length; i++)
+            {
+                par.actionParameters[i].action.DrawGizmo(owner);
+            }
         }
     }
 }

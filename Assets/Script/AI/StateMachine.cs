@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class StateMachine : MonoBehaviour
 {
     public State initialState;
-    private State _currentState;
+    State _currentState;
 
     private Color GamingGizmoCol;
     // Start is called before the first frame update
