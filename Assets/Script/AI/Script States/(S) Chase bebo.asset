@@ -9,15 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0901cff9284cf92489615bca21e88572, type: 3}
-  m_Name: (S) Guard
+  m_Script: {fileID: 11500000, guid: d16162ea4fbb112438ab506251610b63, type: 3}
+  m_Name: (S) Chase bebo
   m_EditorClassIdentifier: 
   parameters:
   - actionParameters:
     - action: {fileID: 11400000, guid: 0c71012a79db25840915911451a6cb33, type: 2}
-      actionValue: 1
+      actionValue: 0
     - action: {fileID: 11400000, guid: dd8f77e0089879b49aee020d17ba6878, type: 2}
-      actionValue: 1
-    nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
-    or: 1
-  guardPoint: {x: 121.7, y: 26.99, z: 712}
+      actionValue: 0
+    nextState: {fileID: 11400000, guid: 09e2b59ce19a79942a5016facda54b53, type: 2}
+    or: 0
