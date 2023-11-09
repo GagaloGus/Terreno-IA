@@ -18,11 +18,11 @@ MonoBehaviour:
       actionValue: 1
     - action: {fileID: 11400000, guid: dd8f77e0089879b49aee020d17ba6878, type: 2}
       actionValue: 1
-    nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
+    nextState: {fileID: 11400000, guid: 996e60ff2a3d09944ae6846e96593ed7, type: 2}
     or: 1
   patrolPoints:
-  - {x: 181.5, y: 31.63, z: 691.3}
-  - {x: 165.35, y: 30.96, z: 689.93}
-  - {x: 174.32, y: 31.85, z: 722.05}
+  - {x: 181.5, y: 24.2, z: 691.3}
+  - {x: 165.35, y: 24.7, z: 689.93}
+  - {x: 174.32, y: 24.3, z: 722.05}
   minSwapTime: 4.5
   maxSwapTime: 10.7

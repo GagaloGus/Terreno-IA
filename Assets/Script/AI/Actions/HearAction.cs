@@ -9,15 +9,14 @@ public class HearAction : Action
     public float hearRadius;
     public override bool Check(GameObject owner)
     {
-        RaycastHit[] cosos = Physics.SphereCastAll(owner.transform.position, hearRadius, Vector3.up);
+        RaycastHit[] hits = Physics.SphereCastAll(owner.transform.position, hearRadius, Vector3.up);
 
-        foreach (RaycastHit hit in cosos)
+        foreach (RaycastHit hit in hits)
         {
             if (hit.collider.GetComponent<PlayerMovement>())
             {
                 return true;
             }
-
         }
         return false;
     }

@@ -20,12 +20,15 @@ public class WatchAction : Action
 
         foreach (RaycastHit ray in colliders)
         {
-            Vector3 directionToCollider = (ray.collider.transform.position - owner.transform.position).normalized;
-            float angleToCollider = Vector3.Angle(owner.transform.forward, directionToCollider);
-
-            if(angleToCollider < angle/2 && ray.collider.GetComponent<PlayerMovement>()) 
+            if (ray.collider.GetComponent<PlayerMovement>())
             {
-                return true;
+                Vector3 directionToCollider = (ray.collider.transform.position - owner.transform.position).normalized;
+                float angleToCollider = Vector3.Angle(owner.transform.forward, directionToCollider);
+
+                if(angleToCollider < angle/2) 
+                {
+                    return true;
+                }
             }
         }
 
