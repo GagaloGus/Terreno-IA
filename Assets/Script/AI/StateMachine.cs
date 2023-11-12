@@ -10,13 +10,15 @@ public class StateMachine : MonoBehaviour
     State _currentState;
 
     private Color GamingGizmoCol;
+    private Color MonoGizmoCol;
     // Start is called before the first frame update
     void Start()
     {
         _currentState = initialState;
         _currentState.StartState(gameObject);
 
-        StartCoroutine(ChangeCol());
+        StartCoroutine(RainbowCol());
+        StartCoroutine(MonoCol());
     }
 
     // Update is called once per frame
@@ -38,14 +40,17 @@ public class StateMachine : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = GamingGizmoCol;
         if(_currentState != null)
         {
-            _currentState.DrawAllGizmos(gameObject);
+            Gizmos.color = GamingGizmoCol;
+            _currentState.DrawActionsGizmo(gameObject);
+
+            Gizmos.color = MonoGizmoCol;
+            _currentState.DrawStateGizmo(gameObject);
         }
     }
 
-    IEnumerator ChangeCol()
+    IEnumerator RainbowCol()
     {
         float count = 0;
         while (count < 1)
@@ -57,8 +62,21 @@ public class StateMachine : MonoBehaviour
 
             count += 1 / 360f;
         }
-        StartCoroutine(ChangeCol());
-
+        StartCoroutine(RainbowCol());
     }
 
+    IEnumerator MonoCol()
+    {
+        List<Color> monoColors = new()
+            { Color.white, Color.black };
+
+        foreach(Color color in monoColors)
+        {
+            MonoGizmoCol = color;
+            yield return new WaitForSeconds(1);
+        }
+
+        StartCoroutine(MonoCol());
+    }
+        
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-[CreateAssetMenu(fileName = "(S) Guard", menuName = "ScriptableObjects/State/GuardState")]
+[CreateAssetMenu(fileName = "(S) Guard", menuName = "ScriptableObjects/States/Guard (S)")]
 public class GuardState : State
 {
     public Vector3 guardPoint;

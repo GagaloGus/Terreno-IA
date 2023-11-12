@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.UI.GridLayoutGroup;
 
-[CreateAssetMenu(fileName = "(A) Hear", menuName = "ScriptableObjects/Actions/HearAction")]
+[CreateAssetMenu(fileName = "(A) Hear", menuName = "ScriptableObjects/Actions/Hear (A)")]
 public class HearAction : Action
 {
     public float hearRadius;

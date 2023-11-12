@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(fileName = "(S) Patrol", menuName = "ScriptableObjects/State/PatrolState")]
+[CreateAssetMenu(fileName = "(S) Patrol", menuName = "ScriptableObjects/States/Patrol (S)")]
 
 public class PatrolState : State
 {
@@ -24,17 +24,21 @@ public class PatrolState : State
     public override State Run(GameObject owner)
     {
 
-        count+= Time.deltaTime;
-        if(count >= maxTime)
+        //espera hasta que llegue a su destino para iniciar el contador
+        if(navMeshAgent.remainingDistance <= 1)
         {
-            //le suma uno al contador del array
-            pointInt++;
-            //reinicia el contador
-            count = 0;
-            //randomiza el tiempo para cambiar de punto otra vez
-            maxTime = Random.Range(minSwapTime, maxSwapTime);
-            Debug.Log("Cambio");
+            count+= Time.deltaTime;
+            if(count >= maxTime)
+            {
+                //le suma uno al contador del array
+                pointInt++;
+                //reinicia el contador
+                count = 0;
+                //randomiza el tiempo para cambiar de punto otra vez
+                maxTime = Random.Range(minSwapTime, maxSwapTime);
+            }
         }
+
 
         if(pointInt >= patrolPoints.Length) { pointInt = 0; }
 
@@ -42,5 +46,20 @@ public class PatrolState : State
 
         return base.Run(owner);
 
+    }
+
+    public override void DrawStateGizmo(GameObject owner)
+    {
+        for(int i = 0; i < patrolPoints.Length; i++)
+        {
+            if (i == patrolPoints.Length - 1)
+            {
+                Gizmos.DrawRay(patrolPoints[i], patrolPoints[0] - patrolPoints[i]);
+            }
+            else
+            {
+                Gizmos.DrawRay(patrolPoints[i], patrolPoints[i + 1] - patrolPoints[i]);
+            }
+        }
     }
 }

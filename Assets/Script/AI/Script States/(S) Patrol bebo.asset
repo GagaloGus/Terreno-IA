@@ -21,8 +21,8 @@ MonoBehaviour:
     nextState: {fileID: 11400000, guid: 996e60ff2a3d09944ae6846e96593ed7, type: 2}
     or: 1
   patrolPoints:
-  - {x: 181.5, y: 24.2, z: 691.3}
-  - {x: 165.35, y: 24.7, z: 689.93}
-  - {x: 174.32, y: 24.3, z: 722.05}
-  minSwapTime: 4.5
-  maxSwapTime: 10.7
+  - {x: 181.5, y: 18.34, z: 691.3}
+  - {x: 165.35, y: 21.1, z: 689.93}
+  - {x: 174.32, y: 18.34, z: 722.05}
+  minSwapTime: 1
+  maxSwapTime: 3.6

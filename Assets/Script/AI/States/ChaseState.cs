@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[CreateAssetMenu(fileName = "(S) Chase", menuName = "ScriptableObjects/State/ChaseState")]
+[CreateAssetMenu(fileName = "(S) Chase", menuName = "ScriptableObjects/States/Chase (S)")]
 public class ChaseState : State
 {
     private GameObject target;

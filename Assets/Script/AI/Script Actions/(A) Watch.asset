@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf45f015752ebb4a84c917eba9a1af1, type: 3}
   m_Name: (A) Watch
   m_EditorClassIdentifier: 
-  distance: 16.6
-  angle: 13.09
-  height: 0.33
+  distance: 39.4
+  angle: 16.4
+  height: 0

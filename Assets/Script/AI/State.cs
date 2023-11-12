@@ -51,7 +51,12 @@ public abstract class State : ScriptableObject
         navMeshAgent = owner.GetComponent<NavMeshAgent>(); 
     }
 
-    public void DrawAllGizmos(GameObject owner)
+    public virtual void DrawStateGizmo(GameObject owner)
+    {
+
+    }
+
+    public void DrawActionsGizmo(GameObject owner)
     {
         foreach (StateParameters par in parameters)
         {
