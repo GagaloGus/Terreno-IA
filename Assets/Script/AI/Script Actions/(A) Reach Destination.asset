@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1268a4396488ebf46b9c60ad6b67663d, type: 3}
-  m_Name: (S) Investigate
+  m_Script: {fileID: 11500000, guid: 8ff69f198e5c83741ac97a44c9bb3e27, type: 3}
+  m_Name: (A) Reach Destination
   m_EditorClassIdentifier: 
-  parameters: []
-  speedDecrease: 50
-  questionIcon: {fileID: 0}

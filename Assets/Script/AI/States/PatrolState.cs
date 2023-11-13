@@ -11,12 +11,15 @@ public class PatrolState : State
     public Vector3[] patrolPoints;
     [Range(0f, 60f)]
     public float minSwapTime, maxSwapTime;
+
+    public Texture2D nothingTexture2D;
         
     float count = 0, maxTime;
     int pointInt = 0;
     public override void StartState(GameObject owner)
     {
         base.StartState(owner);
+        base.ChangeTextureQuestionPlane(owner, nothingTexture2D);
         //randomiza el tiempo para cambiar de punto 
         maxTime = Random.Range(minSwapTime, maxSwapTime);
     }

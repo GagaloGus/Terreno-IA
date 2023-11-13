@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c0aadffa23a0344ba2ce326f5c36e7f, type: 3}
-  m_Name: (S) Patrol bebo
+  m_Script: {fileID: 11500000, guid: 1268a4396488ebf46b9c60ad6b67663d, type: 3}
+  m_Name: (S) Investigate bebo
   m_EditorClassIdentifier: 
   parameters:
   - actionParameters:
@@ -21,14 +21,9 @@ MonoBehaviour:
     nextState: {fileID: 11400000, guid: d43ac4a95e7cefc429a34c714d2f8c24, type: 2}
     or: 1
   - actionParameters:
-    - action: {fileID: 11400000, guid: 0c71012a79db25840915911451a6cb33, type: 2}
+    - action: {fileID: 11400000, guid: d13db3c18b7bc3c4a909119a49ae014a, type: 2}
       actionValue: 1
-    nextState: {fileID: 11400000, guid: 55bde4f2a9d27c742b9dd98cc1f78c98, type: 2}
-    or: 0
-  patrolPoints:
-  - {x: 181.5, y: 18.34, z: 691.3}
-  - {x: 165.35, y: 21.1, z: 689.93}
-  - {x: 174.32, y: 18.34, z: 722.05}
-  minSwapTime: 1
-  maxSwapTime: 3.6
-  nothingTexture2D: {fileID: 2800000, guid: 900c0361b34c87a4094e71a8f83a75d3, type: 3}
+    nextState: {fileID: 11400000, guid: 3bff33bff3ba0e34ea5af36e7d81404f, type: 2}
+    or: 1
+  speedDecrease: 50
+  questionIcon: {fileID: 2800000, guid: 470b38e2f80f26a44973b168a5ca4a71, type: 3}

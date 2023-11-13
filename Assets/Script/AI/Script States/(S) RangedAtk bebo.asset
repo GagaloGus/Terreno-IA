@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419548271637c4d4997b70ff33d870a0, type: 3}
-  m_Name: (A) Presence Detected
+  m_Script: {fileID: 11500000, guid: fbfde7f5b4a3e9e4ca275ab4ff816b3d, type: 3}
+  m_Name: (S) RangedAtk bebo
   m_EditorClassIdentifier: 
-  hearRadius: 3
+  parameters: []

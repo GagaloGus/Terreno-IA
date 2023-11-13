@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419548271637c4d4997b70ff33d870a0, type: 3}
-  m_Name: (A) Presence Detected
+  m_Script: {fileID: 11500000, guid: 002c06b89091efb43af979226c64ad39, type: 3}
+  m_Name: (A) P in Melee Range
   m_EditorClassIdentifier: 
-  hearRadius: 3
+  playerMinDistance: 4

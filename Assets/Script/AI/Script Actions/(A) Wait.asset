@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419548271637c4d4997b70ff33d870a0, type: 3}
-  m_Name: (A) Presence Detected
+  m_Script: {fileID: 11500000, guid: bb630704eb0b9974b8bd187498abd6e0, type: 3}
+  m_Name: (A) Wait
   m_EditorClassIdentifier: 
-  hearRadius: 3
+  waitTime: 4

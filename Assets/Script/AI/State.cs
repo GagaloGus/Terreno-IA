@@ -66,4 +66,14 @@ public abstract class State : ScriptableObject
             }
         }
     }
+
+    protected void ChangeTextureQuestionPlane(GameObject owner, Texture2D newTexture)
+    {
+       GameObject plane = owner.transform.Find("questionIcon").gameObject;
+       
+       //cambia el albedo y el emission
+       plane.GetComponent<Renderer>().material.SetTexture("_MainTex", newTexture);
+       plane.GetComponent<Renderer>().material.SetTexture("_EmissionMap", newTexture);
+
+    }
 }
