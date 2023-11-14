@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff69f198e5c83741ac97a44c9bb3e27, type: 3}
-  m_Name: (A) Reach Destination
+  m_Script: {fileID: 11500000, guid: 002c06b89091efb43af979226c64ad39, type: 3}
+  m_Name: (A) P Too Far
   m_EditorClassIdentifier: 
-  margen: 0.97
+  playerMinDistance: 40

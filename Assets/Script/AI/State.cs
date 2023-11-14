@@ -26,6 +26,7 @@ public abstract class State : ScriptableObject
 {
     public StateParameters[] parameters;
     protected NavMeshAgent navMeshAgent;
+    protected GameObject target;
     public virtual State Run(GameObject owner)
     {
         foreach (StateParameters par in parameters)
@@ -39,7 +40,10 @@ public abstract class State : ScriptableObject
                 if(par.or && currentAction) { return par.nextState; }
             }
 
-            return and ? par.nextState : null;
+            if(and)
+            {
+                return par.nextState;
+            }
             
         }
 
@@ -48,7 +52,16 @@ public abstract class State : ScriptableObject
 
     public virtual void StartState(GameObject owner)
     {
-        navMeshAgent = owner.GetComponent<NavMeshAgent>(); 
+        navMeshAgent = owner.GetComponent<NavMeshAgent>();
+        target = FindObjectOfType<PlayerMovement>().gameObject;
+        //empieza los starts de sus acciones
+        foreach(StateParameters par in parameters)
+        {
+            foreach(ActionParameter act in  par.actionParameters)
+            {
+                act.action.StartAction();
+            }
+        }
     }
 
     public virtual void DrawStateGizmo(GameObject owner)

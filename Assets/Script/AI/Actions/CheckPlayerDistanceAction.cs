@@ -5,8 +5,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "(A) Check Player Distance", menuName = "ScriptableObjects/Actions/Check Player Distance (A)")]
 public class CheckPlayerDistanceAction : Action
 {
-    GameObject target;
+    
     public int playerMinDistance = 4;
+
+    public override void StartAction()
+    {
+        base.StartAction();
+    }
+
     public override bool Check(GameObject owner)
     {
         target = FindObjectOfType<PlayerMovement>().gameObject;

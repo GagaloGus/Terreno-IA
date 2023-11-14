@@ -7,6 +7,7 @@ using UnityEngine.AI;
 public class StateMachine : MonoBehaviour
 {
     public State initialState;
+    [SerializeField]
     State _currentState;
 
     private Color GamingGizmoCol;
@@ -25,7 +26,6 @@ public class StateMachine : MonoBehaviour
     void Update()
     {
         State nextState = _currentState.Run(gameObject);
-
         if(nextState != null)
         {
             ChangeState(nextState);

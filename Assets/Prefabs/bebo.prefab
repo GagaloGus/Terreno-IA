@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7063924390348725238}
   - component: {fileID: 300044030508232303}
   - component: {fileID: 3330565841726586567}
+  - component: {fileID: 5201754431901629468}
   m_Layer: 0
   m_Name: bebo
   m_TagString: Untagged
@@ -133,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 11400000, guid: 23b46347e2960844681f8dd0e8420b93, type: 2}
+  _currentState: {fileID: 0}
 --- !u!135 &300044030508232303
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -176,6 +178,27 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 2
+--- !u!95 &5201754431901629468
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6305716314253064238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4b4af8541bb5a24db85b63aa067de91, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7816287147484402545
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,12 @@ using static UnityEngine.UI.GridLayoutGroup;
 public class HearAction : Action
 {
     public float hearRadius;
+
+    public override void StartAction()
+    {
+        base.StartAction();
+    }
+
     public override bool Check(GameObject owner)
     {
         RaycastHit[] hits = Physics.SphereCastAll(owner.transform.position, hearRadius, Vector3.up);

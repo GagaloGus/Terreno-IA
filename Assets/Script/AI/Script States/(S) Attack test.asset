@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff69f198e5c83741ac97a44c9bb3e27, type: 3}
-  m_Name: (A) Reach Destination
+  m_Script: {fileID: 11500000, guid: 1411b07d47992fc47bef9857cc66cb18, type: 3}
+  m_Name: (S) Attack test
   m_EditorClassIdentifier: 
-  margen: 0.97
+  parameters: []
+  alertIcon: {fileID: 0}

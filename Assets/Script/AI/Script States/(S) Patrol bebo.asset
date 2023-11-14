@@ -26,9 +26,11 @@ MonoBehaviour:
     nextState: {fileID: 11400000, guid: 55bde4f2a9d27c742b9dd98cc1f78c98, type: 2}
     or: 0
   patrolPoints:
+  - {x: 189.1, y: 16.8, z: 727.8}
   - {x: 181.5, y: 18.34, z: 691.3}
   - {x: 165.35, y: 21.1, z: 689.93}
   - {x: 174.32, y: 18.34, z: 722.05}
   minSwapTime: 1
   maxSwapTime: 3.6
   nothingTexture2D: {fileID: 2800000, guid: 900c0361b34c87a4094e71a8f83a75d3, type: 3}
+  newPosition: {x: 0, y: 0, z: 0}

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1411b07d47992fc47bef9857cc66cb18, type: 3}
-  m_Name: (S) Attack bebo
+  m_Script: {fileID: 11500000, guid: 0d4a9261804f8434792ededba9a18fae, type: 3}
+  m_Name: (S) Alejarse Ranged bebo
   m_EditorClassIdentifier: 
   parameters:
   - actionParameters:
@@ -19,8 +19,9 @@ MonoBehaviour:
     nextState: {fileID: 11400000, guid: f5cfbdebf26a4784a9d104349f9d1ed6, type: 2}
     or: 0
   - actionParameters:
-    - action: {fileID: 11400000, guid: 2a1b18ea61c219b47a51cbc73dbc15bf, type: 2}
+    - action: {fileID: 11400000, guid: 4479da65aa7bfff44955423cd3356077, type: 2}
       actionValue: 0
-    nextState: {fileID: 11400000, guid: b43b6a6cdfc5a084a96ffcc9db62d43f, type: 2}
+    nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
     or: 0
-  alertIcon: {fileID: 2800000, guid: a46a2bf3b6fccbb478347a79d34a34aa, type: 3}
+  distance: 4
+  angle: 14.9

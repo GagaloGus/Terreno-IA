@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class PatrolState : State
 {
     [Tooltip("Los puntos por los que va a ir la IA en orden")]
-    public Vector3[] patrolPoints;
+    public List<Vector3> patrolPoints = new();
     [Range(0f, 60f)]
     public float minSwapTime, maxSwapTime;
 
@@ -16,12 +16,21 @@ public class PatrolState : State
         
     float count = 0, maxTime;
     int pointInt = 0;
+
+    [HideInInspector]
+    public Vector3 newPosition = Vector3.zero;
     public override void StartState(GameObject owner)
     {
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, nothingTexture2D);
         //randomiza el tiempo para cambiar de punto 
         maxTime = Random.Range(minSwapTime, maxSwapTime);
+
+        if(newPosition != Vector3.zero)
+        {
+            patrolPoints.Add(newPosition);
+            newPosition = Vector3.zero;
+        }
     }
 
     public override State Run(GameObject owner)
@@ -43,7 +52,7 @@ public class PatrolState : State
         }
 
 
-        if(pointInt >= patrolPoints.Length) { pointInt = 0; }
+        if(pointInt >= patrolPoints.Count) { pointInt = 0; }
 
         navMeshAgent.SetDestination(patrolPoints[pointInt]);
 
@@ -53,9 +62,9 @@ public class PatrolState : State
 
     public override void DrawStateGizmo(GameObject owner)
     {
-        for(int i = 0; i < patrolPoints.Length; i++)
+        for(int i = 0; i < patrolPoints.Count; i++)
         {
-            if (i == patrolPoints.Length - 1)
+            if (i == patrolPoints.Count - 1)
             {
                 Gizmos.DrawRay(patrolPoints[i], patrolPoints[0] - patrolPoints[i]);
             }

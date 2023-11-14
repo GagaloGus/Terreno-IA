@@ -9,15 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0901cff9284cf92489615bca21e88572, type: 3}
-  m_Name: (S) Guard bebo
+  m_Script: {fileID: 11500000, guid: 6b8954c26d7d2f446973959facd89f85, type: 3}
+  m_Name: (S) Guard Position bebo
   m_EditorClassIdentifier: 
   parameters:
+  - actionParameters:
+    - action: {fileID: 11400000, guid: 6bdb3d5e4305b3f4a9abf43fa5220996, type: 2}
+      actionValue: 1
+    nextState: {fileID: 11400000, guid: 23b46347e2960844681f8dd0e8420b93, type: 2}
+    or: 0
   - actionParameters:
     - action: {fileID: 11400000, guid: 0c71012a79db25840915911451a6cb33, type: 2}
       actionValue: 1
     - action: {fileID: 11400000, guid: dd8f77e0089879b49aee020d17ba6878, type: 2}
       actionValue: 1
-    nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
+    nextState: {fileID: 11400000, guid: d43ac4a95e7cefc429a34c714d2f8c24, type: 2}
     or: 1
-  guardPoint: {x: 121.7, y: 26.99, z: 712}
+  savePositionToPatrol: 1
+  patrolState: {fileID: 11400000, guid: 23b46347e2960844681f8dd0e8420b93, type: 2}

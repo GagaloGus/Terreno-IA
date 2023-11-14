@@ -14,7 +14,11 @@ public class WatchAction : Action
     [Tooltip("Altura de los ojos del personaje")]
     public float height;
 
-    
+    public override void StartAction()
+    {
+        base.StartAction();
+    }
+
     public override bool Check(GameObject owner)
     {
         Vector3 eyePoint = owner.transform.position + Vector3.up * height;
