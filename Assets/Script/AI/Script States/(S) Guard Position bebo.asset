@@ -27,3 +27,4 @@ MonoBehaviour:
     or: 1
   savePositionToPatrol: 1
   patrolState: {fileID: 11400000, guid: 23b46347e2960844681f8dd0e8420b93, type: 2}
+  questionIcon: {fileID: 2800000, guid: 470b38e2f80f26a44973b168a5ca4a71, type: 3}

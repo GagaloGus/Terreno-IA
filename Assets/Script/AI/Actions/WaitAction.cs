@@ -33,7 +33,7 @@ public class WaitAction : Action
     public override void DrawGizmo(GameObject owner)
     {
         Vector3 coolPosition = owner.transform.position + Vector3.right * 2;
-        Gizmos.DrawRay(coolPosition,
+        Gizmos.DrawCube(coolPosition,
             Vector3.up * CoolFunctions.MapValues(currentTime, waitTime, 0, 0, waitTime));
 
     }

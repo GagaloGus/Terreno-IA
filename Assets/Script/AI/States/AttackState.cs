@@ -10,6 +10,8 @@ public class AttackState : State
     {
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, alertIcon);
+        cannon.GetComponent<Animator>().SetBool("attackMode", true);
+
     }
 
     public override State Run(GameObject owner)

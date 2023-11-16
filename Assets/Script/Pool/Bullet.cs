@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed, maxTime = 2;
+    public float maxTime = 2;
+    float speed;
     Vector3 direction;
     Rigidbody rb;
     float currentTime;
@@ -17,11 +18,12 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        rb.velocity += direction * speed;
     }
     // Update is called once per frame
     void Update()
     {
+        rb.velocity = direction * speed;
+
         currentTime += Time.deltaTime;
         if(currentTime > maxTime)
         {

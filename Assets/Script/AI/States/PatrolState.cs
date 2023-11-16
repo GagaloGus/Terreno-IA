@@ -7,8 +7,7 @@ using UnityEngine.AI;
 
 public class PatrolState : State
 {
-    [Tooltip("Los puntos por los que va a ir la IA en orden")]
-    public List<Vector3> patrolPoints = new();
+
     [Range(0f, 60f)]
     public float minSwapTime, maxSwapTime;
 
@@ -17,20 +16,25 @@ public class PatrolState : State
     float count = 0, maxTime;
     int pointInt = 0;
 
-    [HideInInspector]
-    public Vector3 newPosition = Vector3.zero;
+    public int originalPatrolCount;
+
+    List<Vector3> patrolPoints = new();
     public override void StartState(GameObject owner)
     {
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, nothingTexture2D);
+
+        patrolPoints = owner.GetComponent<PatrolPoints>().patrolPoints;
         //randomiza el tiempo para cambiar de punto 
         maxTime = Random.Range(minSwapTime, maxSwapTime);
 
-        if(newPosition != Vector3.zero)
+
+        while(patrolPoints.Count > originalPatrolCount)
         {
-            patrolPoints.Add(newPosition);
-            newPosition = Vector3.zero;
+            patrolPoints.RemoveAt(patrolPoints.Count - 1);
         }
+
+        cannon.GetComponent<Animator>().SetBool("attackMode", false);
     }
 
     public override State Run(GameObject owner)

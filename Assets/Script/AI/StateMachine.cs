@@ -79,4 +79,5 @@ public class StateMachine : MonoBehaviour
         StartCoroutine(MonoCol());
     }
         
+    public State get_currentState { get { return _currentState; } }
 }

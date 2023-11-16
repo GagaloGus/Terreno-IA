@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "(A) Reach Destination", menuName = "ScriptableObjects/Actions/Reach Destination (A)")]
 public class ReachedDestinationAction : Action
 {
-    [Range(0.5f, 10)]
+    [Range(0.1f, 10)]
     public float margen;
 
     public override void StartAction()
