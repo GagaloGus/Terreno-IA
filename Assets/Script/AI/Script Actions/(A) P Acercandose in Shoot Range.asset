@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 002c06b89091efb43af979226c64ad39, type: 3}
   m_Name: (A) P Acercandose in Shoot Range
   m_EditorClassIdentifier: 
-  playerMinDistance: 15
+  playerMinDistance: 20

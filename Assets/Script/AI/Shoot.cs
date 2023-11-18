@@ -6,7 +6,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public State[] shootStates;
-    public bool canShoot;
+    bool canShoot;
 
     StateMachine machine;
 
@@ -30,7 +30,7 @@ public class Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Mira si uno de los componentes del array es igual al actual en la StateMachine
+        //Mira si uno de los States del array es igual al actual en la StateMachine
         State mach = Array.Find(shootStates, x => x == machine.get_currentState);
         if (mach == machine.get_currentState) { canShoot = true; }
         else { canShoot = false; }
@@ -51,6 +51,8 @@ public class Shoot : MonoBehaviour
                     bullet.transform.position = gunPoint.transform.position;
                     bullet.GetComponent<Bullet>()._speed = bulletSpeed;
                     bullet.GetComponent<Bullet>()._direction = (target.transform.position - gunPoint.gameObject.transform.position).normalized;
+
+                    GetComponent<AudioPlayer>().PlaySFX("shoot");
                 }
 
                 waitTime = 0;

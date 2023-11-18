@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,33 +24,26 @@ public class WatchAction : Action
     {
         Vector3 eyePoint = owner.transform.position + Vector3.up * height;
 
-        RaycastHit[] colliders = Physics.SphereCastAll(eyePoint, distance, Vector3.forward);
+        Vector3 direction = target.transform.position - eyePoint;
+        float watchAngle = Vector3.Angle(direction, owner.transform.forward);
 
-        foreach (RaycastHit ray in colliders)
+        if(-angle/2 < watchAngle && 
+            watchAngle < angle/2 && 
+            Vector3.Distance(eyePoint, target.transform.position) <= distance)
         {
-            if (ray.collider.GetComponent<PlayerMovement>())
-            {
-                Vector3 directionToCollider = (ray.collider.transform.position - eyePoint).normalized;
-                float angleToCollider = Vector3.Angle(eyePoint, directionToCollider);
-
-                if(angleToCollider < angle/2) 
-                {
-                    return true;
-                }
-            }
+            return true;
         }
-
-        return false;  
+        return false;
         
     }
     public override void DrawGizmo(GameObject owner)
     {
         Vector3 eyePoint = owner.transform.position + Vector3.up * height;
 
-        Vector3 bottomLeft = Quaternion.Euler(-angle, -angle, 0) * owner.transform.forward * distance + eyePoint;
-        Vector3 bottomRight = Quaternion.Euler(-angle, angle, 0) * owner.transform.forward * distance + eyePoint;
-        Vector3 topRight = Quaternion.Euler(angle, angle, 0) * owner.transform.forward * distance + eyePoint;
-        Vector3 topLeft = Quaternion.Euler(angle, -angle, 0) * owner.transform.forward * distance + eyePoint;
+        Vector3 bottomLeft = Quaternion.Euler(-angle /2, -angle /2, 0) * owner.transform.forward * distance + eyePoint;
+        Vector3 bottomRight = Quaternion.Euler(-angle /2, angle /2, 0) * owner.transform.forward * distance + eyePoint;
+        Vector3 topRight = Quaternion.Euler(angle /2, angle /2, 0) * owner.transform.forward * distance + eyePoint;
+        Vector3 topLeft = Quaternion.Euler(angle /2, -angle /2, 0) * owner.transform.forward * distance + eyePoint;
         
         //aristas de la piramide
         Gizmos.DrawRay(eyePoint, bottomLeft - eyePoint);

@@ -6,7 +6,6 @@ using UnityEngine;
 public class ConfusedState : State
 {
     public bool savePositionToPatrol;
-    public PatrolState patrolState;
 
     public Texture2D questionIcon;
 
@@ -14,12 +13,14 @@ public class ConfusedState : State
     {
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, questionIcon);
-        if (savePositionToPatrol) { owner.GetComponent<PatrolPoints>().patrolPoints.Add(owner.transform.position); }
+        if (savePositionToPatrol) { owner.GetComponent<PatrolPoints>().AddPatrolPoint(owner.transform.position); }
+
+        audioPlayer.PlaySFX("huh", 0.5f);
     }
 
     public override State Run(GameObject owner)
     {
-
+        owner.transform.Rotate(0, 0.3f, 0);
         return base.Run(owner);
     }
 }

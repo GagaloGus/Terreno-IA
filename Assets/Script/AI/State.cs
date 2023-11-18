@@ -27,6 +27,7 @@ public abstract class State : ScriptableObject
     public StateParameters[] parameters;
     protected NavMeshAgent navMeshAgent;
     protected GameObject target, cannon;
+    protected AudioPlayer audioPlayer;
     public virtual State Run(GameObject owner)
     {
         foreach (StateParameters par in parameters)
@@ -55,6 +56,7 @@ public abstract class State : ScriptableObject
         navMeshAgent = owner.GetComponent<NavMeshAgent>();
         target = FindObjectOfType<PlayerMovement>().gameObject;
         cannon = owner.transform.Find("cannon").gameObject;
+        audioPlayer = owner.GetComponent<AudioPlayer>();
 
         //empieza los starts de sus acciones
         foreach(StateParameters par in parameters)

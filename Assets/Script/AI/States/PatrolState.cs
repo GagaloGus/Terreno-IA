@@ -7,7 +7,6 @@ using UnityEngine.AI;
 
 public class PatrolState : State
 {
-
     [Range(0f, 60f)]
     public float minSwapTime, maxSwapTime;
 
@@ -15,8 +14,6 @@ public class PatrolState : State
         
     float count = 0, maxTime;
     int pointInt = 0;
-
-    public int originalPatrolCount;
 
     List<Vector3> patrolPoints = new();
     public override void StartState(GameObject owner)
@@ -27,12 +24,6 @@ public class PatrolState : State
         patrolPoints = owner.GetComponent<PatrolPoints>().patrolPoints;
         //randomiza el tiempo para cambiar de punto 
         maxTime = Random.Range(minSwapTime, maxSwapTime);
-
-
-        while(patrolPoints.Count > originalPatrolCount)
-        {
-            patrolPoints.RemoveAt(patrolPoints.Count - 1);
-        }
 
         cannon.GetComponent<Animator>().SetBool("attackMode", false);
     }

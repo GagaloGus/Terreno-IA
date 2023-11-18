@@ -6,6 +6,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float maxTime = 2;
+    public int damage;
     float speed;
     Vector3 direction;
     Rigidbody rb;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 
 [CreateAssetMenu(fileName = "(A) Wait", menuName = "ScriptableObjects/Actions/Wait (A)")]
 public class WaitAction : Action
@@ -21,11 +22,14 @@ public class WaitAction : Action
 
     public override bool Check(GameObject owner)
     {
-        currentTime += Time.deltaTime;
-        if (currentTime > waitTime)
+        if(owner.GetComponent<NavMeshAgent>().remainingDistance <= 1)
         {
-            currentTime = 0;
-            return true;
+            currentTime += Time.deltaTime;
+            if (currentTime > waitTime)
+            {
+                currentTime = 0;
+                return true;
+            }
         }
         return false;
     }

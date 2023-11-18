@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine; 
+using Cinemachine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,11 +21,13 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         float IncMovespeed = moveSpeed * 5;
-        moveInput = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical"));
-        moveInput.Normalize();
+        //vector de direccion de nuestro input
+        moveInput = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical")).normalized;
 
+        //se mueve acorde a donde apunte la camara
         rb.AddForce((-Camera.main.transform.right * moveInput.x + -Camera.main.transform.forward * moveInput.y) * IncMovespeed);
 
+        //mantiene la velocidad en los 3 ejes segun un rango
         rb.velocity = new(
             Mathf.Clamp(rb.velocity.x, -IncMovespeed, IncMovespeed),
             Mathf.Clamp(rb.velocity.y, -50, 50),
@@ -38,15 +40,12 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity += new Vector3(0, jumpForce, 0);
         }
+    }
 
-        if (Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt))
-        {
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-        }
 
+    private void OnTriggerEnter(Collider trigger)
+    {
+        Bullet bullet = trigger.GetComponent<Bullet>();
+        if (bullet) { GameManager.instance.ChangeHealth(-bullet.damage); }
     }
 }
