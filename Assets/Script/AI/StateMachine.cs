@@ -7,7 +7,6 @@ using UnityEngine.AI;
 public class StateMachine : MonoBehaviour
 {
     public State initialState;
-    [SerializeField]
     State _currentState;
 
     private Color GamingGizmoCol;

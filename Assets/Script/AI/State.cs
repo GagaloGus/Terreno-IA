@@ -63,6 +63,7 @@ public abstract class State : ScriptableObject
         {
             foreach(ActionParameter act in  par.actionParameters)
             {
+                act.action.set_target = target;
                 act.action.StartAction();
             }
         }

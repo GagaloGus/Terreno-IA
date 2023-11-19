@@ -21,7 +21,8 @@ public class PatrolState : State
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, nothingTexture2D);
 
-        patrolPoints = owner.GetComponent<PatrolPoints>().patrolPoints;
+        //coje los patrolpoints del monobehaviour
+        patrolPoints = owner.GetComponent<PatrolPoints>().get_patrolpointList;
         //randomiza el tiempo para cambiar de punto 
         maxTime = Random.Range(minSwapTime, maxSwapTime);
 
@@ -46,7 +47,7 @@ public class PatrolState : State
             }
         }
 
-
+        //Resetea el conteo de patrol a 0
         if(pointInt >= patrolPoints.Count) { pointInt = 0; }
 
         navMeshAgent.SetDestination(patrolPoints[pointInt]);

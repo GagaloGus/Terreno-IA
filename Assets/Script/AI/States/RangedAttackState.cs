@@ -11,6 +11,7 @@ public class RangedAttackState : State
     }
     public override State Run(GameObject owner)
     {
+        //se queda quieto mientras apunta al player
         owner.transform.LookAt(target.transform.position);
         return base.Run(owner);
     }

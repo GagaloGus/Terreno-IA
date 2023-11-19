@@ -7,7 +7,7 @@ public abstract class Action : ScriptableObject
     protected GameObject target;
     public virtual void StartAction()
     {
-        target = FindObjectOfType<PlayerMovement>().gameObject;
+        
     }
 
     public abstract bool Check(GameObject owner);
@@ -15,5 +15,10 @@ public abstract class Action : ScriptableObject
     public virtual void DrawGizmo(GameObject owner) 
     {
         
+    }
+
+    public GameObject set_target
+    {
+        set { target = value; }
     }
 }

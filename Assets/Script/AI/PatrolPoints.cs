@@ -5,15 +5,17 @@ using UnityEngine;
 public class PatrolPoints : MonoBehaviour
 {
     [SerializeField]
-    public List<Vector3> patrolPoints = new();
+    List<Vector3> patrolPoints = new();
     public int originalPatrolCount, maxNextPatrolPointRange;
     private void Start()
     {
+        //resetea los patrol points
         while (patrolPoints.Count > originalPatrolCount)
         {
             patrolPoints.RemoveAt(patrolPoints.Count - 1);
         }
 
+        //por conveniencia, mas comodo asi
         originalPatrolCount--;
     }
 
@@ -28,6 +30,7 @@ public class PatrolPoints : MonoBehaviour
 
     bool CheckIfPointIsInRange(Vector3 newPoint)
     {
+        //recorrre toda la lista de patrolpoints para ver si newPoint esta dentro de un rango en especifico acorde a los patrolpoints
         for (int i = 0; i < patrolPoints.Count; i++)
         {
             if (Vector3.Distance(patrolPoints[i], newPoint) <= maxNextPatrolPointRange)
@@ -40,10 +43,16 @@ public class PatrolPoints : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        //dibuja el maximo rango desde cada patrolpoint
         for(int i = 0;i < patrolPoints.Count; i++)
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(patrolPoints[i], maxNextPatrolPointRange);
         }
+    }
+
+    public List<Vector3> get_patrolpointList
+    {
+        get { return patrolPoints; }
     }
 }

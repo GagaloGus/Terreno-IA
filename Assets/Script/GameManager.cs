@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     int health;
     public int maxHealth;
-    public bool isPaused, isInMenu;
+    public bool isPaused;
     void Awake()
     {
         if (!instance) //comprueba que instance no tenga informacion
@@ -23,21 +23,20 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        isInMenu = true;
         health = maxHealth;
     }
 
     private void Update()
     {
+        //si tu vida es 0 o menos vuevle al Menu
         if (health <= 0)
         {
             LoadScene("Menu");
         }
 
-        if(Input.GetKeyDown(KeyCode.UpArrow)) { health++; print("sube"); }
-        else if(Input.GetKeyDown(KeyCode.DownArrow)) { health--; print("baja"); }
-
-        if (isPaused || isInMenu)        {
+        //si el juego esta pausado o la escena es el menu puedes usar el raton
+        if (isPaused || SceneManager.GetActiveScene().name == "Menu")        
+        {
             Cursor.lockState = CursorLockMode.None;
         }
         else
@@ -49,10 +48,8 @@ public class GameManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         isPaused = false;
+        health = maxHealth; //pone la vida al maximo
         Time.timeScale = 1.0f;
-        if(sceneName == "Menu") { isInMenu = true; } 
-        else { isInMenu = false; }
-
         SceneManager.LoadScene(sceneName);
     }
 

@@ -10,19 +10,13 @@ public class AlejarseRangedState : State
     public float angle = 2;
     Vector3 direction;
 
-    float speedMult, ogSpeed;
     public override void StartState(GameObject owner)
     {
         base.StartState(owner);
-        ogSpeed = navMeshAgent.speed;
     }
 
     public override State Run(GameObject owner)
     {
-        //Multiplicador que aumenta la velocidad segun lo cerca que este el player del enemigo
-        /*speedMult = CoolFunctions.MapValues(Vector3.Distance(owner.transform.position, target.transform.position), 0, 15, 5, 1);
-        navMeshAgent.speed = ogSpeed * speedMult;*/
-
         //mire al player
         owner.transform.LookAt(target.transform.position);
 

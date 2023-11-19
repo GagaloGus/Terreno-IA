@@ -8,6 +8,7 @@ public class AttackState : State
     public Texture2D alertIcon;
     public override void StartState(GameObject owner)
     {
+        //establece todo lo necesario para entrar a la "fase ataque"
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, alertIcon);
         cannon.GetComponent<Animator>().SetBool("attackMode", true);

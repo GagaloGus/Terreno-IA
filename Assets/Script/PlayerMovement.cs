@@ -20,7 +20,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //incremento de la velocidad default
         float IncMovespeed = moveSpeed * 5;
+
         //vector de direccion de nuestro input
         moveInput = new Vector2(-Input.GetAxis("Horizontal"), -Input.GetAxis("Vertical")).normalized;
 
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
             Mathf.Clamp(rb.velocity.y, -50, 50),
             Mathf.Clamp(rb.velocity.z, -IncMovespeed, IncMovespeed));
 
-
+        //checkea si esta tocando el suelo segun un raycast
         isGrounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, LayerMask.GetMask("Ground"));
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)

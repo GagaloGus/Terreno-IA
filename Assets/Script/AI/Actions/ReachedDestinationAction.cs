@@ -17,15 +17,11 @@ public class ReachedDestinationAction : Action
 
     public override bool Check(GameObject owner)
     {
+        //si ha llegado a su destino con tanto margen devuelve true
         if(owner.GetComponent<NavMeshAgent>().remainingDistance <= margen)
         {
             return true;
         }
         return false;
-    }
-
-    public override void DrawGizmo(GameObject owner)
-    {
-        
     }
 }

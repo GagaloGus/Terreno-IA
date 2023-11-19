@@ -15,14 +15,10 @@ public class HearAction : Action
 
     public override bool Check(GameObject owner)
     {
-        RaycastHit[] hits = Physics.SphereCastAll(owner.transform.position, hearRadius, Vector3.up);
-
-        foreach (RaycastHit hit in hits)
+        //si la distancia entre el player y el enemigo es menor o igual al radio devuelve true
+        if (Vector3.Distance(target.transform.position, owner.transform.position) <= hearRadius)
         {
-            if (hit.collider.GetComponent<PlayerMovement>())
-            {
-                return true;
-            }
+            return true;
         }
         return false;
     }

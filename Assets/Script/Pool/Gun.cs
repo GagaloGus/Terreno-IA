@@ -33,8 +33,10 @@ public class Gun : MonoBehaviour
             {
                 //activar el objeto
                 bullet.SetActive(true);
-                //cambiar posicion de bala a la punta pistola
+                //cambiar posicion de bala a la punta de la pistola
                 bullet.transform.position = gunPoint.transform.position;
+
+                //cambia la velocidad y direccion
                 bullet.GetComponent<Bullet>()._speed = gunSpeed;
                 bullet.GetComponent<Bullet>()._direction = gunPoint.transform.forward;
 

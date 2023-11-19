@@ -22,11 +22,16 @@ public class WatchAction : Action
 
     public override bool Check(GameObject owner)
     {
+        //sube o baja el punto de vision
         Vector3 eyePoint = owner.transform.position + Vector3.up * height;
 
+        //direccion entre el player y el enemigo
         Vector3 direction = target.transform.position - eyePoint;
+
+        //coje el angulo entre la direccion y el enemigo
         float watchAngle = Vector3.Angle(direction, owner.transform.forward);
 
+        //si el angulo esta dentro del angulo y distancia devuelve true
         if(-angle/2 < watchAngle && 
             watchAngle < angle/2 && 
             Vector3.Distance(eyePoint, target.transform.position) <= distance)

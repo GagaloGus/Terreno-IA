@@ -1596,6 +1596,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   isPaused: 0
+  isInMenu: 0
 --- !u!4 &1069149145
 Transform:
   m_ObjectHideFlags: 0

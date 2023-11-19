@@ -37,6 +37,7 @@ public class Shoot : MonoBehaviour
 
         if(canShoot)
         {
+            //inicia el contador
             waitTime += Time.deltaTime;
             if(waitTime > maxShootTime)
             {
@@ -49,6 +50,8 @@ public class Shoot : MonoBehaviour
                     bullet.transform.forward = gunPoint.transform.forward;
                     //cambiar posicion de bala a la punta pistola
                     bullet.transform.position = gunPoint.transform.position;
+
+                    //cambia la velocidad y direccion
                     bullet.GetComponent<Bullet>()._speed = bulletSpeed;
                     bullet.GetComponent<Bullet>()._direction = (target.transform.position - gunPoint.gameObject.transform.position).normalized;
 

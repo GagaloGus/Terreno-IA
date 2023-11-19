@@ -25,5 +25,5 @@ MonoBehaviour:
       actionValue: 1
     nextState: {fileID: 11400000, guid: 3bff33bff3ba0e34ea5af36e7d81404f, type: 2}
     or: 0
-  speedDecrease: 100
+  speedDecrease: 65
   questionIcon: {fileID: 2800000, guid: 470b38e2f80f26a44973b168a5ca4a71, type: 3}

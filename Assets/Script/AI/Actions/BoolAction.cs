@@ -13,6 +13,7 @@ public class BoolAction : Action
 
     public override bool Check(GameObject owner)
     {
+        //o es true o es false, no hay mas
         return Bool;
     }
 }

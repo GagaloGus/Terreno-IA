@@ -10,6 +10,7 @@ public class AudioPlayer : MonoBehaviour
 
     public void PlaySFX(string name, float volume = 1)
     {
+        //si el sonido introducido esta en la lista lo reproduce con un volumen especifico
         Sounds sfx = Array.Find(sfxSounds, x => x.name == name);
         if(sfx != null)
         {
