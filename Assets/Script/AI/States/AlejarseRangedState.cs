@@ -13,6 +13,9 @@ public class AlejarseRangedState : State
     public override void StartState(GameObject owner)
     {
         base.StartState(owner);
+
+        animator.SetBool("isWalking", true);
+        animator.SetBool("goingBackwards", true);
     }
 
     public override State Run(GameObject owner)

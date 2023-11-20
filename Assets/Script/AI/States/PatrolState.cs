@@ -25,13 +25,10 @@ public class PatrolState : State
         patrolPoints = owner.GetComponent<PatrolPoints>().get_patrolpointList;
         //randomiza el tiempo para cambiar de punto 
         maxTime = Random.Range(minSwapTime, maxSwapTime);
-
-        cannon.GetComponent<Animator>().SetBool("attackMode", false);
     }
 
     public override State Run(GameObject owner)
     {
-
         //espera hasta que llegue a su destino para iniciar el contador
         if(navMeshAgent.remainingDistance <= 1)
         {
@@ -45,10 +42,16 @@ public class PatrolState : State
                 //randomiza el tiempo para cambiar de punto otra vez
                 maxTime = Random.Range(minSwapTime, maxSwapTime);
             }
+
+            animator.SetBool("isWalking", false);
+        }
+        else
+        {
+            animator.SetBool("isWalking", true);
         }
 
         //Resetea el conteo de patrol a 0
-        if(pointInt >= patrolPoints.Count) { pointInt = 0; }
+        if (pointInt >= patrolPoints.Count) { pointInt = 0; }
 
         navMeshAgent.SetDestination(patrolPoints[pointInt]);
 

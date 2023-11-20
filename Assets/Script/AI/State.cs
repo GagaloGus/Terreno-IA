@@ -1,10 +1,5 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.UI.GridLayoutGroup;
 
 [System.Serializable]
 public struct ActionParameter
@@ -18,7 +13,7 @@ public struct StateParameters
 {
     public ActionParameter[] actionParameters;
     public State nextState;
-    [Tooltip("True = Or (si se cumple una solo cambia a la siguiente, False = And")]
+    [Tooltip("True = Or (si se cumple una solo cambia a la siguiente), False = And")]
     public bool or;
 }
 
@@ -28,6 +23,7 @@ public abstract class State : ScriptableObject
     protected NavMeshAgent navMeshAgent;
     protected GameObject target, cannon;
     protected AudioPlayer audioPlayer;
+    protected Animator animator;
     public virtual State Run(GameObject owner)
     {
         foreach (StateParameters par in parameters)
@@ -57,6 +53,8 @@ public abstract class State : ScriptableObject
         target = FindObjectOfType<PlayerMovement>().gameObject;
         cannon = owner.transform.Find("cannon").gameObject;
         audioPlayer = owner.GetComponent<AudioPlayer>();
+
+        animator = owner.GetComponent<Animator>();
 
         //empieza los starts de sus acciones
         foreach(StateParameters par in parameters)

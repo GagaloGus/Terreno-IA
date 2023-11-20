@@ -17,10 +17,14 @@ public class InvestigateState : State
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, questionIcon);
 
+        //reproduce el sonido de huh
         audioPlayer.PlaySFX("huh", 0.4f);
 
         originalSpeed = navMeshAgent.speed;
         targetPos = target.transform.position;
+
+        animator.SetBool("isInvestigating", true);
+        animator.SetBool("isWalking", true);
     }
 
     public override State Run(GameObject owner)

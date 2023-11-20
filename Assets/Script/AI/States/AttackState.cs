@@ -11,8 +11,8 @@ public class AttackState : State
         //establece todo lo necesario para entrar a la "fase ataque"
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, alertIcon);
-        cannon.GetComponent<Animator>().SetBool("attackMode", true);
 
+        animator.SetTrigger("attackMode");
     }
 
     public override State Run(GameObject owner)

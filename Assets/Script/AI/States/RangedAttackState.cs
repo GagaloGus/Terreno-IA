@@ -8,6 +8,8 @@ public class RangedAttackState : State
     public override void StartState(GameObject owner)
     {
         base.StartState(owner);
+
+        animator.SetBool("isWalking", false);
     }
     public override State Run(GameObject owner)
     {
