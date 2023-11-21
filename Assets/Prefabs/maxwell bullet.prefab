@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxTime: 2
   damage: 2
+  speed: 8
 --- !u!54 &1566263689815712746
 Rigidbody:
   m_ObjectHideFlags: 0

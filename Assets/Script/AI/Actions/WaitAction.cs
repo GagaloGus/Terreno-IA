@@ -23,15 +23,11 @@ public class WaitAction : Action
 
     public override bool Check(GameObject owner)
     {
-        //si ya ha llegado a su destino empieza la cuenta atras
-        if(owner.GetComponent<NavMeshAgent>().remainingDistance <= 1)
+        currentTime += Time.deltaTime;
+        if (currentTime > waitTime)
         {
-            currentTime += Time.deltaTime;
-            if (currentTime > waitTime)
-            {
-                currentTime = 0;
-                return true;
-            }
+            currentTime = 0;
+            return true;
         }
         return false;
     }

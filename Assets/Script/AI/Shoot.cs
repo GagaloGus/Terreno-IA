@@ -60,7 +60,6 @@ public class Shoot : MonoBehaviour
 
                 waitTime = 0;
             }
-
         }
     }
 }

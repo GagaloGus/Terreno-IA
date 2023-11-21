@@ -6,22 +6,20 @@ using UnityEngine;
 public class InvestigateState : State
 {
     [Range(0f, 100f)]
-    [Tooltip("Porcentaje de velocidad reducida, 0% (entero) hasta 100% (nada)")]
+    [Tooltip("Porcentaje de velocidad reducida, 0% (nada) hasta 100% (entero)")]
     public int speedDecrease = 50;
     public Texture2D questionIcon;
 
-    float originalSpeed;
-    Vector3 targetPos;
+    Vector3 lastPlayerPos;
     public override void StartState(GameObject owner)
     {
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, questionIcon);
 
+        lastPlayerPos = target.transform.position;
+
         //reproduce el sonido de huh
         audioPlayer.PlaySFX("huh", 0.4f);
-
-        originalSpeed = navMeshAgent.speed;
-        targetPos = target.transform.position;
 
         animator.SetBool("isInvestigating", true);
         animator.SetBool("isWalking", true);
@@ -29,8 +27,8 @@ public class InvestigateState : State
 
     public override State Run(GameObject owner)
     {
-        navMeshAgent.speed = originalSpeed * ((float)speedDecrease / 100); 
-        navMeshAgent.SetDestination(targetPos);
+        navMeshAgent.speed = navOgSpeed - navOgSpeed * ((float)speedDecrease / 100); 
+        navMeshAgent.SetDestination(lastPlayerPos);
 
         return base.Run(owner);
 

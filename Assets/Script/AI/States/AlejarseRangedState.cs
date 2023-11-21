@@ -7,9 +7,8 @@ public class AlejarseRangedState : State
 {
     public float distance = 0.1f;
     [Range(0f, 30)]
-    public float angle = 2;
+    public float angle, maxSpeedIncrease;
     Vector3 direction;
-
     public override void StartState(GameObject owner)
     {
         base.StartState(owner);
@@ -23,8 +22,9 @@ public class AlejarseRangedState : State
         //mire al player
         owner.transform.LookAt(target.transform.position);
 
+        navMeshAgent.speed = navOgSpeed * maxSpeedIncrease;
         //randomiza la nueva posicion
-        if (navMeshAgent.remainingDistance < distance/4)
+        if (navMeshAgent.remainingDistance < distance/5)
         {
             float randomAngle = Random.Range(-angle, angle);
 

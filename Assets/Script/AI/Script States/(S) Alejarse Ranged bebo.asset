@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - actionParameters:
-    - action: {fileID: 11400000, guid: 96feaaa3a23732d48a9b62df5d9ea453, type: 2}
+    - action: {fileID: 11400000, guid: cf829e2760660f54e801829ded8b8cff, type: 2}
       actionValue: 0
     nextState: {fileID: 11400000, guid: b43b6a6cdfc5a084a96ffcc9db62d43f, type: 2}
     or: 0
-  distance: 4
+  - actionParameters:
+    - action: {fileID: 11400000, guid: c3e2888cf3100584498d01e6f9617f9a, type: 2}
+      actionValue: 1
+    nextState: {fileID: 11400000, guid: 5a96220be3224fe4d9b137e85481ae9d, type: 2}
+    or: 0
+  distance: 8
   angle: 14.9
+  maxSpeedIncrease: 2

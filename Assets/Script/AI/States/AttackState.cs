@@ -12,6 +12,7 @@ public class AttackState : State
         base.StartState(owner);
         base.ChangeTextureQuestionPlane(owner, alertIcon);
 
+        animator.SetBool("isInvestigating", false);
         animator.SetTrigger("attackMode");
     }
 

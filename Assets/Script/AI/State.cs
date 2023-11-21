@@ -24,6 +24,7 @@ public abstract class State : ScriptableObject
     protected GameObject target, cannon;
     protected AudioPlayer audioPlayer;
     protected Animator animator;
+    protected float navOgSpeed;
     public virtual State Run(GameObject owner)
     {
         foreach (StateParameters par in parameters)
@@ -53,8 +54,11 @@ public abstract class State : ScriptableObject
         target = FindObjectOfType<PlayerMovement>().gameObject;
         cannon = owner.transform.Find("cannon").gameObject;
         audioPlayer = owner.GetComponent<AudioPlayer>();
-
+        navOgSpeed = FindObjectOfType<StateMachine>().get_originalSpeed;
         animator = owner.GetComponent<Animator>();
+
+        //resetea la velocidad del mavmeshagent a la original
+        navMeshAgent.speed = navOgSpeed;
 
         //empieza los starts de sus acciones
         foreach(StateParameters par in parameters)

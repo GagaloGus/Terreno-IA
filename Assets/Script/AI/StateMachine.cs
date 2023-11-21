@@ -7,27 +7,42 @@ using UnityEngine.AI;
 public class StateMachine : MonoBehaviour
 {
     public State initialState;
+    [SerializeField]
     State _currentState;
+
+    public GameObjPool bulletPool;
 
     private Color GamingGizmoCol;
     private Color MonoGizmoCol;
+
+    float ogSpeed;
     // Start is called before the first frame update
     void Start()
     {
+        ogSpeed = GetComponent<NavMeshAgent>().speed;
+
         _currentState = initialState;
         _currentState.StartState(gameObject);
 
         StartCoroutine(RainbowCol());
         StartCoroutine(MonoCol());
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        State nextState = _currentState.Run(gameObject);
-        if(nextState != null)
+        if (!GameManager.instance._playerDied)
         {
-            ChangeState(nextState);
+            State nextState = _currentState.Run(gameObject);
+            if(nextState != null)
+            {
+                ChangeState(nextState);
+            }
+        }
+        else
+        {
+            GetComponent<Animator>().SetTrigger("playerDied");
         }
     }
 
@@ -79,4 +94,6 @@ public class StateMachine : MonoBehaviour
     }
         
     public State get_currentState { get { return _currentState; } }
+
+    public float get_originalSpeed { get { return ogSpeed; } }
 }

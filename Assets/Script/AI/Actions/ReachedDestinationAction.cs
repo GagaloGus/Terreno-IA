@@ -7,8 +7,6 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "(A) Reach Destination", menuName = "ScriptableObjects/Actions/Reach Destination (A)")]
 public class ReachedDestinationAction : Action
 {
-    [Range(0.1f, 10)]
-    public float margen;
 
     public override void StartAction()
     {
@@ -18,7 +16,7 @@ public class ReachedDestinationAction : Action
     public override bool Check(GameObject owner)
     {
         //si ha llegado a su destino con tanto margen devuelve true
-        if(owner.GetComponent<NavMeshAgent>().remainingDistance <= margen)
+        if(owner.GetComponent<NavMeshAgent>().remainingDistance <= owner.GetComponent<NavMeshAgent>().stoppingDistance)
         {
             return true;
         }

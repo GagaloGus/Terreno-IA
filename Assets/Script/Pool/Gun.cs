@@ -11,6 +11,9 @@ public class Gun : MonoBehaviour
     List<string> meows = new();
     public int numberOfMeowSFX;
     AudioPlayer audioPlayer;
+
+    bool gunActive;
+    Animator gunAnimator;
     private void Start()
     {
         audioPlayer = GetComponent<AudioPlayer>();
@@ -20,32 +23,41 @@ public class Gun : MonoBehaviour
         {
             meows.Add($"meow{i}");
         }
+
+        gunActive = true;
+        gunAnimator = transform.Find("pistola").gameObject.GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0) && !GameManager.instance._isPaused)
+        if (!GameManager.instance._playerDied)
         {
-
-            //acceder a un obj de la pull
-            GameObject bullet = pool.GetFirstInactiveGameObject();
-            if (bullet != null)
+            if(Input.GetMouseButtonDown(0) && !GameManager.instance._isPaused && gunActive)
             {
-                //activar el objeto
-                bullet.SetActive(true);
-                //cambiar posicion de bala a la punta de la pistola
-                bullet.transform.position = gunPoint.transform.position;
 
-                //cambia la velocidad y direccion
-                bullet.GetComponent<Bullet>()._speed = gunSpeed;
-                bullet.GetComponent<Bullet>()._direction = gunPoint.transform.forward;
+                //acceder a un obj de la pull
+                GameObject bullet = pool.GetFirstInactiveGameObject();
+                if (bullet != null)
+                {
+                    //activar el objeto
+                    bullet.SetActive(true);
+                    //cambiar posicion de bala a la punta de la pistola
+                    bullet.transform.position = gunPoint.transform.position;
 
-                //fuerza recoil hacia atras
-                GetComponent<Rigidbody>().AddForce(-transform.forward * recoilForce * 100);
+                    //cambia la velocidad y direccion
+                    bullet.GetComponent<Bullet>()._speed = gunSpeed;
+                    bullet.GetComponent<Bullet>()._direction = gunPoint.transform.forward;
 
-                //reproduce un meow aleatorio
-                audioPlayer.PlaySFX(meows[Random.Range(0, meows.Count)], 0.4f);
+                    //fuerza recoil hacia atras
+                    GetComponent<Rigidbody>().AddForce(-transform.forward * recoilForce * 100);
+
+                    //reproduce un meow aleatorio
+                    audioPlayer.PlaySFX(meows[Random.Range(0, meows.Count)], 0.4f);
+                }
             }
+
+            if (Input.GetKeyDown(KeyCode.F)) { gunActive = !gunActive; }
+            gunAnimator.SetBool("active", gunActive);
         }
     }
 }

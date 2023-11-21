@@ -23,3 +23,4 @@ MonoBehaviour:
       actionValue: 0
     nextState: {fileID: 11400000, guid: 037195bde523af14ca246f24587de4ec, type: 2}
     or: 0
+  maxShootTime: 2

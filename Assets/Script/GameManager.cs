@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    bool playerDied;
 
     int health;
     public int maxHealth;
@@ -22,7 +23,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
+        playerDied = false;
         health = maxHealth;
     }
 
@@ -31,7 +32,7 @@ public class GameManager : MonoBehaviour
         //si tu vida es 0 o menos vuevle al Menu
         if (health <= 0)
         {
-            LoadScene("Menu");
+            Death();
         }
 
         //si el juego esta pausado o la escena es el menu puedes usar el raton
@@ -43,6 +44,14 @@ public class GameManager : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+        if (Input.GetKeyDown(KeyCode.UpArrow)) { health++; }
+        else if(Input.GetKeyDown(KeyCode.DownArrow)) { health--; }
+    }
+
+    void Death()
+    {
+        playerDied = true;
     }
 
     public void LoadScene(string sceneName)
@@ -79,5 +88,10 @@ public class GameManager : MonoBehaviour
     public bool _isPaused
     {
         get { return isPaused; }
+    }
+
+    public bool _playerDied
+    {
+        get { return playerDied; }
     }
 }

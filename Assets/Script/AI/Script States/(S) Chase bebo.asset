@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameters:
   - actionParameters:
-    - action: {fileID: 11400000, guid: 4479da65aa7bfff44955423cd3356077, type: 2}
+    - action: {fileID: 11400000, guid: f052131d640fcbf47b069ab9fd11b17c, type: 2}
       actionValue: 1
     nextState: {fileID: 11400000, guid: b43b6a6cdfc5a084a96ffcc9db62d43f, type: 2}
     or: 0
