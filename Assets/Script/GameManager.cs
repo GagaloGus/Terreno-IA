@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     int health;
     public int maxHealth;
     public bool isPaused;
+
+    bool pauseCinematic = false;
     void Awake()
     {
         if (!instance) //comprueba que instance no tenga informacion
@@ -25,14 +27,17 @@ public class GameManager : MonoBehaviour
         }
         playerDied = false;
         health = maxHealth;
+
+        pauseCinematic = false;
     }
 
     private void Update()
     {
         //si tu vida es 0 o menos vuevle al Menu
-        if (health <= 0)
+        if (health <= 0 && !pauseCinematic)
         {
             Death();
+            pauseCinematic = true;
         }
 
         //si el juego esta pausado o la escena es el menu puedes usar el raton
@@ -52,6 +57,8 @@ public class GameManager : MonoBehaviour
     void Death()
     {
         playerDied = true;
+        FindObjectOfType<PlayerMovement>().StartCoroutineToBlack();
+        FindObjectOfType<StateMachine>().PlayerDied();
     }
 
     public void LoadScene(string sceneName)

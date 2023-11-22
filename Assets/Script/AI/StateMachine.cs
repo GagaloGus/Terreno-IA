@@ -40,10 +40,6 @@ public class StateMachine : MonoBehaviour
                 ChangeState(nextState);
             }
         }
-        else
-        {
-            GetComponent<Animator>().SetTrigger("playerDied");
-        }
     }
 
     void ChangeState(State nextState)
@@ -91,6 +87,11 @@ public class StateMachine : MonoBehaviour
         }
 
         StartCoroutine(MonoCol());
+    }
+
+    public void PlayerDied()
+    {
+        GetComponent<Animator>().SetTrigger("playerDied");
     }
         
     public State get_currentState { get { return _currentState; } }

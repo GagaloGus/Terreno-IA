@@ -32,4 +32,9 @@ public class EnemyAnimationEvents : MonoBehaviour
             GetComponent<AudioPlayer>().PlaySFX("shoot");
         }
     }
+
+    public void GangamStyleResetScene()
+    {
+        GameManager.instance.LoadScene("Menu");
+    }
 }

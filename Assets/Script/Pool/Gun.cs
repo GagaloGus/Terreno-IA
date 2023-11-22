@@ -57,7 +57,12 @@ public class Gun : MonoBehaviour
             }
 
             if (Input.GetKeyDown(KeyCode.F)) { gunActive = !gunActive; }
-            gunAnimator.SetBool("active", gunActive);
         }
+        else
+        {
+            gunActive = false;
+        }
+
+        gunAnimator.SetBool("active", gunActive);
     }
 }
