@@ -51,7 +51,7 @@ public abstract class State : ScriptableObject
     public virtual void StartState(GameObject owner)
     {
         navMeshAgent = owner.GetComponent<NavMeshAgent>();
-        target = FindObjectOfType<PlayerMovement>().gameObject;
+        target = GameManager.instance.get_player;
         cannon = owner.transform.Find("cannon").gameObject;
         audioPlayer = owner.GetComponent<AudioPlayer>();
         navOgSpeed = FindObjectOfType<StateMachine>().get_originalSpeed;

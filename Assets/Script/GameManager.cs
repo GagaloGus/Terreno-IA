@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     bool playerDied;
+    GameObject player;
 
     int health;
     public int maxHealth;
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         health = maxHealth;
 
         pauseCinematic = false;
+        player = FindObjectOfType<PlayerMovement>().gameObject;
     }
 
     private void Update()
@@ -100,5 +102,10 @@ public class GameManager : MonoBehaviour
     public bool _playerDied
     {
         get { return playerDied; }
+    }
+
+    public GameObject get_player
+    {
+        get { return player; }
     }
 }

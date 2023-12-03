@@ -10,8 +10,10 @@ public class WatchAction : Action
 {
     [Tooltip("Distancia de vision")]
     public float distance = 10;
+
     [Tooltip("Angulo de vision")]
     public float angle = 30;
+
     [Tooltip("Altura de los ojos del personaje")]
     public float height;
 

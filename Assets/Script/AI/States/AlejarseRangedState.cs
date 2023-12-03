@@ -30,6 +30,7 @@ public class AlejarseRangedState : State
 
             //angulo random + direccion hacia atras del player + distancia;
             direction = Quaternion.Euler(0, randomAngle, 0) * -(target.transform.position - owner.transform.position).normalized * distance;
+            
             navMeshAgent.SetDestination(direction + owner.transform.position);
         }
 
